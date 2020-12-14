@@ -7,19 +7,19 @@ let package = Package(
        .macOS(.v10_15)
     ],
     dependencies: [
-        // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
+        .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0-rc.1.4"),
+        .package(url: "https://github.com/jumpper/jumpper.git", from: "0.0.5")
     ],
     targets: [
         .target(
             name: "App",
             dependencies: [
-                .product(name: "Vapor", package: "vapor")
+                .product(name: "Vapor", package: "vapor"),
+                .product(name: "Leaf", package: "leaf"),
+                .product(name: "jumpper", package: "jumpper")
             ],
             swiftSettings: [
-                // Enable better optimizations when building in Release configuration. Despite the use of
-                // the `.unsafeFlags` construct required by SwiftPM, this flag is recommended for Release
-                // builds. See <https://github.com/swift-server/guides#building-for-production> for details.
                 .unsafeFlags(["-cross-module-optimization"], .when(configuration: .release))
             ]
         ),

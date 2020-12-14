@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="styles/milligram.min.css">
 
   <title>#(title)</title>
 </head>
 
 <body>
-  <h1>#(title)</h1>
+  #(body)
 </body>
 </html>
